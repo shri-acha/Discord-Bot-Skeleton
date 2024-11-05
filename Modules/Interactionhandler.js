@@ -1,15 +1,16 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 const Discord = require("discord.js");
-
-
+const env = require('dotenv').config();
+const announcementHandler = require("./Sub-Modules/announcementHandler.js");
+const socialMediaNotifierHandler = require("./Sub-Modules/socialMediaNotifierHandler.js")
 
 const {
     Client,
     IntentsBitField,
     ActionRowBuilder,
     TextInputBuilder,
-    TextInputStyle,
+    TextInputStyle  ,
     ModalBuilder,
     ButtonBuilder,
     ButtonStyle,
@@ -23,18 +24,11 @@ const {
 
 
 
-require("dotenv").config();
-module.exports = async (interaction) => {
-
-    //Add The Conditionals for Interaction Identifier Here and Send Flow to the Function Directly if no Race Condition Asynchronously if has a Race Condition
-    // if (interaction.commandName==='createrole'){
-    //     createrole(interaction)
-    //     return;
-    // }
-    //Example Use
-    
-
-    
-
-    
+module.exports = async (interaction,client) => {
+ if (interaction.isChatInputCommand()){
+    if(interaction.commandName == "announce"){
+      announcementHandler(interaction,client);
+      // socialMediaNotifierHandler(client,EmbedBuilder);
+    }
+ }
 };

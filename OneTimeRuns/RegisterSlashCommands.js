@@ -3,57 +3,20 @@ const { REST, Routes,ApplicationCommandOptionType } = require('discord.js');
 
 
 //The Below Snippets Shows How to Create a Slash Command( generally for Moderator and Higher Level Use (Make the Command Name and Conditions Discriptive ))
-// const commands = [
-//   {
-//     name: 'createrole',
-//     description: 'create a new role along with the needed channel(Admin Level Only)',
-//     options:[
-//       {
-//         name:'role_name',
-//         description:'name of the role',
-//         type: ApplicationCommandOptionType.String,
-//         required: true,
-//       },
-//       {
-//         name: 'role_emoji',
-//         description: 'emoji for the role',
-//         type: ApplicationCommandOptionType.String,
-//         required: true,
-//       },
-     
-     
-//     ]
-//   },
-//   {
-//     name: 'createproject',
-//     description: 'create a new role project with the needed channel(Admin Level Only)',
-//     options:[
-//       {
-//         name:'project_name',
-//         description:'name of the project',
-//         type: ApplicationCommandOptionType.String,
-//         required: true,
-//       },
-//       {
-//         name: 'project_emoji',
-//         description: 'emoji for the project',
-//         type: ApplicationCommandOptionType.String,
-//         required: true,
-//       },
-     
-     
-//     ]
-//   },
-//   {
-//     name: 'deletechannel',
-//     description: 'create a new role project with the needed channel(Admin Level Only)',
-    
-//   },
-  
-
-
- 
-// ];
+const commands = [
+  {
+    name: 'announce',
+    description: '/annouce announces on a channel!',
+    options:[
+      {
+        name: 'message',
+        description: 'Message for the annoucement!(Make sure to use | for line breaks)',
+        type: ApplicationCommandOptionType.String,
+        required: true,
+      },
+    ]
+  },
+];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
